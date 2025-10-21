@@ -1,1 +1,43 @@
-<p>login works!</p>
+<div class="container">
+  <div class="form-box">
+    <h2>Entrar</h2>
+
+    <form (ngSubmit)="entrar()">
+      <label for="nome">Nome</label>
+      <div class="input-box">
+        <span class="icon">👤</span>
+        <input
+          id="nome"
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="nome"
+          name="nome"
+        />
+      </div>
+
+      <label for="senha">Senha</label>
+      <div class="input-box">
+        <span class="icon">🔒</span>
+        <input
+          id="senha"
+          type="password"
+          placeholder="Password"
+          [(ngModel)]="senha"
+          name="senha"
+        />
+      </div>
+
+      <div class="forgot">
+        <a href="#">Esqueceu a senha?</a>
+      </div>
+
+      <button type="submit" class="btn">Entrar</button>
+
+      <p class="register">
+        Ou <a [routerLink]="['/register']">registre-se</a>
+      </p>
+
+
+    </form>
+  </div>
+</div>

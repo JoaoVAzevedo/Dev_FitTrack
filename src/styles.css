@@ -1,1 +1,21 @@
-/* You can add global styles to this file, and also import other style files */
+/* === Estilos Globais do Projeto === */
+
+/* 1. Fonte padrão (pode mudar para 'Poppins' se quiser combinar com as telas) */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* 2. Reset e configuração básica */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #A8E6CF; /* 💚 Cor de fundo do projeto */
+}
+
+/* 3. Garante que o app-root ocupe toda a altura */
+app-root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}

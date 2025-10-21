@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="container">
+  <div class="form-box">
+    <h2>CADASTRAR</h2>
+
+    <form>
+      <label for="nome">Nome</label>
+      <div class="input-box">
+        <span class="icon">👤</span>
+        <input id="nome" type="text" placeholder="Username" />
+      </div>
+
+      <label for="email">E-mail</label>
+      <div class="input-box">
+        <span class="icon">📧</span>
+        <input id="email" type="email" placeholder="E-mail" />
+      </div>
+
+      <label for="senha">Senha</label>
+      <div class="input-box">
+        <span class="icon">🔒</span>
+        <input id="senha" type="password" placeholder="Password" />
+      </div>
+
+      <label for="confirmarSenha">Confirmar senha</label>
+      <div class="input-box">
+        <span class="icon">🔒</span>
+        <input id="confirmarSenha" type="password" placeholder="Password" />
+      </div>
+
+      <button type="submit" class="btn">Cadastrar</button>
+
+      <p class="login">
+        Ja tem conta? <a [routerLink]="['/login']">Faça Login</a>
+      </p>
+
+    </form>
+  </div>
+</div>

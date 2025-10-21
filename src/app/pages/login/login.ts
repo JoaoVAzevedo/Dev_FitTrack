@@ -1,11 +1,25 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-login',
-  imports: [],
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './login.html',
-  styleUrl: './login.css'
+  styleUrls: ['./login.css']
 })
-export class Login {
+export class LoginComponent {
+  nome: string = '';
+  senha: string = '';
 
+  entrar() {
+    if (!this.nome || !this.senha) {
+      alert('Preencha todos os campos!');
+      return;
+    }
+
+    alert(`Bem-vindo, ${this.nome}!`);
+  }
 }
