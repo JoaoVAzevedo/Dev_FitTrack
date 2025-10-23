@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { UsuarioService } from '../../services/usuarios/usuarios';
 
 @Component({
   selector: 'app-register',
@@ -15,6 +16,8 @@ export class RegisterComponent {
   senha: string = '';
   confirmarSenha: string = '';
 
+  constructor(private usuarioService: UsuarioService, private router: Router) {};
+
   cadastrar() {
     if (!this.nome || !this.email || !this.senha || !this.confirmarSenha) {
       alert('Preencha todos os campos!');
@@ -26,12 +29,12 @@ export class RegisterComponent {
       return;
     }
 
-    console.log('Usuário cadastrado:');
-    console.log('Nome:', this.nome);
-    console.log('Email:', this.email);
-    console.log('Senha:', this.senha);
+    const sucesso = this.usuarioService.cadastrarUsuario(this.nome, this.email, this.senha);
 
-    alert('Cadastro realizado com sucesso!');
+    if (sucesso) {
+      alert('Cadastro realizado com sucesso!');
+      this.router.navigate(['/login']);
+    }
   }
-}
 
+}
