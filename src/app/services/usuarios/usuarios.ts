@@ -38,6 +38,7 @@ export class UsuarioService {
     const usuarios = this.listarUsuarios();
     const usuario = usuarios.find((u: { email: string; senha: string; }) => u.email === email && u.senha === senha);
 
+
     if (usuario) {
       localStorage.setItem(this.usuarioLogadoKey, JSON.stringify(usuario));
       console.log('Login realizado:', usuario);
@@ -53,9 +54,9 @@ export class UsuarioService {
   }
 
 
-  getUsuarioLogado() {
-    const usuario = localStorage.getItem(this.usuarioLogadoKey);
-    return usuario ? JSON.parse(usuario) : null;
+  getUsuarioLogado(): {nome: string; email: string; senha: string} | null {
+    const dados = localStorage.getItem(this.usuarioLogadoKey);
+    return dados ? JSON.parse(dados) : null;
   }
 
 
