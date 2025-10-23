@@ -3,14 +3,14 @@
     <h2>Entrar</h2>
 
     <form (ngSubmit)="entrar()">
-      <label for="nome">Nome</label>
+      <label for="nome">E-mail</label>
       <div class="input-box">
-        <span class="icon">👤</span>
+        <span class="icon">📧</span>
         <input
           id="nome"
           type="text"
-          placeholder="Username"
-          [(ngModel)]="nome"
+          placeholder="E-mail"
+          [(ngModel)]="email"
           name="nome"
         />
       </div>
