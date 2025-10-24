@@ -31,7 +31,7 @@ export class LoginComponent {
 
 
       alert(`Bem-vindo, ${nome}!`);
-      //this.router.navigate(['/home']); DESCOMENTAR QUANDO HOME E SUA ROTA ESTIVEREM PRONTOS
+      this.router.navigate(['/menu']);
     }
     else {
       alert('Usuário ou senha inválidos!');
