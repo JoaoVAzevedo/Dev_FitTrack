@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "João Vitor",
+      "email": "joao@fittrack.com",
+      "senha": "123456"
+    },
+    {
+      "id": "2",
+      "nome": "Moisés Felipe",
+      "email": "moises@fittrack.com",
+      "senha": "123456"
+    },
+    {
+      "id": "3641",
+      "nome": "123",
+      "email": "123@123",
+      "senha": "123456"
+    }
+  ]
+}

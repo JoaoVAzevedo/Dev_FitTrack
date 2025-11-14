@@ -2,19 +2,37 @@
   <div class="form-box">
     <h2>Entrar</h2>
 
-    <form (ngSubmit)="entrar()">
-      <label for="nome">E-mail</label>
+    <form [formGroup]="form" (ngSubmit)="entrar()">
+
+      <!-- EMAIL -->
+      <label for="email">E-mail</label>
       <div class="input-box">
         <span class="icon">📧</span>
         <input
-          id="nome"
+          id="email"
           type="text"
           placeholder="E-mail"
-          [(ngModel)]="email"
-          name="nome"
+          formControlName="email"
         />
       </div>
 
+      <!-- Validação email -->
+      <small
+        *ngIf="form.controls['email'].touched && form.controls['email'].hasError('required')"
+        style="color: red;"
+      >
+        O e-mail é obrigatório.
+      </small>
+
+      <small
+        *ngIf="form.controls['email'].touched && form.controls['email'].hasError('email')"
+        style="color: red;"
+      >
+        Insira um e-mail válido.
+      </small>
+
+
+      <!-- SENHA -->
       <label for="senha">Senha</label>
       <div class="input-box">
         <span class="icon">🔒</span>
@@ -22,10 +40,25 @@
           id="senha"
           type="password"
           placeholder="Password"
-          [(ngModel)]="senha"
-          name="senha"
+          formControlName="senha"
         />
       </div>
+
+      <!-- Validação senha -->
+      <small
+        *ngIf="form.controls['senha'].touched && form.controls['senha'].hasError('required')"
+        style="color: red;"
+      >
+        A senha é obrigatória.
+      </small>
+
+      <small
+        *ngIf="form.controls['senha'].touched && form.controls['senha'].hasError('minlength')"
+        style="color: red;"
+      >
+        A senha deve ter no mínimo 6 caracteres.
+      </small>
+
 
       <div class="forgot">
         <a href="#">Esqueceu a senha?</a>
@@ -37,6 +70,10 @@
         Ou <a [routerLink]="['/register']">registre-se</a>
       </p>
 
+      <!-- Erro retornado da API -->
+      <p *ngIf="erroLogin" style="color: red; margin-top: 10px;">
+        E-mail ou senha incorretos.
+      </p>
 
     </form>
   </div>

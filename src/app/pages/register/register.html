@@ -2,35 +2,55 @@
   <div class="form-box">
     <h2>CADASTRAR</h2>
 
-    <form>
+    <form [formGroup]="form" (ngSubmit)="cadastrar()">
+
+      <!-- Nome -->
       <label for="nome">Nome</label>
       <div class="input-box">
         <span class="icon">👤</span>
-        <input id="nome" type="text" placeholder="Username" [(ngModel)]="nome" name="nome" />
+        <input id="nome" type="text" placeholder="Username" formControlName="nome" />
       </div>
+      <small class="error" *ngIf="form.controls['nome'].touched && form.controls['nome'].invalid">
+        O nome deve ter no mínimo 3 caracteres.
+      </small>
 
+      <!-- Email -->
       <label for="email">E-mail</label>
       <div class="input-box">
         <span class="icon">📧</span>
-        <input id="email" type="email" placeholder="E-mail" [(ngModel)]="email" name="email"/>
+        <input id="email" type="email" placeholder="E-mail" formControlName="email" />
       </div>
+      <small class="error" *ngIf="form.controls['email'].touched && form.controls['email'].invalid">
+        Insira um e-mail válido.
+      </small>
 
+      <!-- Senha -->
       <label for="senha">Senha</label>
       <div class="input-box">
         <span class="icon">🔒</span>
-        <input id="senha" type="password" placeholder="Password" [(ngModel)]="senha" name="senha"/>
+        <input id="senha" type="password" placeholder="Password" formControlName="senha" />
       </div>
+      <small class="error" *ngIf="form.controls['senha'].touched && form.controls['senha'].invalid">
+        A senha deve ter no mínimo 6 caracteres.
+      </small>
 
+      <!-- Confirmar Senha -->
       <label for="confirmarSenha">Confirmar senha</label>
       <div class="input-box">
         <span class="icon">🔒</span>
-        <input id="confirmarSenha" type="password" placeholder="Password" [(ngModel)]="confirmarSenha" name="confirmarSenha"/>
+        <input id="confirmarSenha" type="password" placeholder="Password" formControlName="confirmarSenha" />
       </div>
+      <small class="error"
+        *ngIf="form.errors?.['passwordMismatch'] && form.controls['confirmarSenha'].touched">
+        As senhas devem coincidir.
+      </small>
 
-      <button type="button" class="btn" (click)="cadastrar()">Cadastrar</button>
+      <!-- Botão -->
+      <button type="submit" class="btn">Cadastrar</button>
 
       <p class="login">
-        Ja tem conta? <a [routerLink]="['/login']">Faça Login</a>
+        Já tem conta?
+        <a [routerLink]="['/login']">Faça Login</a>
       </p>
 
     </form>

@@ -1,42 +1,50 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { RouterModule } from '@angular/router';       // <-- use RouterModule
+import { CommonModule } from '@angular/common';      // <-- necessário para *ngIf, *ngFor, etc
 import { UsuarioService } from '../../services/usuarios/usuarios';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './login.html',
-  styleUrls: ['./login.css']
+  styleUrls: ['./login.css'],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule]  // <- adicione CommonModule aqui
 })
 export class LoginComponent {
-  email: string = '';
-  senha: string = '';
 
-  constructor(private usuarioService: UsuarioService, private router: Router) {}
+  form!: FormGroup;
+  erroLogin = false;
+
+  constructor(
+    private fb: FormBuilder,
+    private usuarioService: UsuarioService,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      senha: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
 
   entrar() {
-    if (!this.email || !this.senha) {
-      alert('Preencha todos os campos!');
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
       return;
     }
 
-    const sucesso = this.usuarioService.login(this.email, this.senha);
+    const { email, senha } = this.form.value;
 
-    if (sucesso) {
-      const usuario = this.usuarioService.getUsuarioLogado();
-      const nome = usuario?.nome || this.email;;
-
-
-      alert(`Bem-vindo, ${nome}!`);
-      this.router.navigate(['/menu']);
-    }
-    else {
-      alert('Usuário ou senha inválidos!');
-    }
-
-
+    this.usuarioService.login(email, senha).subscribe(res => {
+      if (res.length > 0) {
+        this.erroLogin = false;
+        this.router.navigate(['/menu']);
+      } else {
+        this.erroLogin = true;
+      }
+    });
   }
 }

@@ -98,3 +98,12 @@ label {
 .login a:hover {
   text-decoration: underline;
 }
+
+/* Mensagens de erro */
+.error {
+  color: #e53935;
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-align: left;
+  display: block;
+}

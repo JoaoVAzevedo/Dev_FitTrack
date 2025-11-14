@@ -1,66 +1,43 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+export interface Usuario {
+  id?: number;
+  nome: string;
+  email: string;
+  senha: string;
+}
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class UsuarioService {
-  private usuariosKey = 'usuarios'; // chave usada no localStorage
-  private usuarioLogadoKey = 'usuarioLogado';
+  private apiUrl = 'http://localhost:3000/usuarios';
 
-  constructor() {
-    // cria a lista no localStorage se ainda não existir
-    if (!localStorage.getItem(this.usuariosKey)) {
-      localStorage.setItem(this.usuariosKey, JSON.stringify([]));
-    }
+  constructor(private http: HttpClient) {}
+
+  listar(): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(this.apiUrl);
   }
 
-  // --- Cadastrar usuário ---
-  cadastrarUsuario(nome: string, email: string, senha: string): boolean {
-    const usuarios = this.listarUsuarios();
-
-    if (usuarios.some((u: { nome: string; email: string; senha: string }) => u.email === email)) {
-      alert('Esse email já está cadastrado!');
-      return false;
-    }
-
-    const novoUsuario = { nome, email, senha };
-    usuarios.push(novoUsuario);
-
-    localStorage.setItem(this.usuariosKey, JSON.stringify(usuarios));
-
-    console.log('Usuário cadastrado:', novoUsuario);
-    return true;
+  buscarPorId(id: number): Observable<Usuario> {
+    return this.http.get<Usuario>(`${this.apiUrl}/${id}`);
   }
 
-  // --- Login ---
-  login(email: string, senha: string): boolean {
-    const usuarios = this.listarUsuarios();
-    const usuario = usuarios.find((u: { email: string; senha: string; }) => u.email === email && u.senha === senha);
-
-
-    if (usuario) {
-      localStorage.setItem(this.usuarioLogadoKey, JSON.stringify(usuario));
-      console.log('Login realizado:', usuario);
-      return true;
-    }
-
-    return false;
+  criar(usuario: Usuario): Observable<Usuario> {
+    return this.http.post<Usuario>(this.apiUrl, usuario);
   }
 
-
-  logout() {
-    localStorage.removeItem(this.usuarioLogadoKey);
+  atualizar(id: number, usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>(`${this.apiUrl}/${id}`, usuario);
   }
 
-
-  getUsuarioLogado(): {nome: string; email: string; senha: string} | null {
-    const dados = localStorage.getItem(this.usuarioLogadoKey);
-    return dados ? JSON.parse(dados) : null;
+  remover(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 
-
-  listarUsuarios() {
-    return JSON.parse(localStorage.getItem(this.usuariosKey) || '[]');
+  login(email: string, senha: string): Observable<Usuario[]> {
+    return this.http.get<Usuario[]>(`${this.apiUrl}?email=${email}&senha=${senha}`);
   }
 }
