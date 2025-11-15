@@ -1,0 +1,29 @@
+<!-- Faixa verde -->
+<div class="top-bar"></div>
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="logo">
+    <img src="assets/logo.png" alt="Logo">
+  </div>
+
+  <nav class="nav-links">
+
+    <a routerLink="/menu" routerLinkActive="active">Home</a>
+
+    <div class="dropdown">
+      <a routerLink="/treinos" routerLinkActive="active">Treinos</a>
+
+      <div class="dropdown-content">
+        <a routerLink="/treinos">📋 Lista de treinos</a>
+        <a routerLink="/treinos/novo">➕ Criar novo treino</a>
+        <a routerLink="/treinos/selecionar">🏋️ Selecionar exercícios</a>
+      </div>
+    </div>
+
+    <a routerLink="/planos-alimentares" routerLinkActive="active">Planos alimentares</a>
+    <a routerLink="/sobre-nos" routerLinkActive="active">Sobre nós</a>
+    <a routerLink="/contato" routerLinkActive="active">Contato</a>
+
+  </nav>
+</header>

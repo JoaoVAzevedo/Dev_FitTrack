@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-menu',
-  imports: [RouterModule],
   standalone: true,
+  imports: [CommonModule],
   templateUrl: './menu.html',
   styleUrls: ['./menu.css']
 })
-export class MenuComponent {
-
-}
+export class MenuComponent {}

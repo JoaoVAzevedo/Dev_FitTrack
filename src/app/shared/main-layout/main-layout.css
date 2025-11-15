@@ -1,0 +1,22 @@
+/* main-layout.css - mantém o layout neutro para as páginas internas */
+:host {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* garante que o roteiro ocupe largura completa */
+.pagina {
+  width: 100%;
+  min-height: calc(100vh - 135px);
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* se por acaso houver estilo herdado que centraliza children, neutraliza */
+.pagina > * {
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
