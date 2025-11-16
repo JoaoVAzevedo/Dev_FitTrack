@@ -10,6 +10,7 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout';
 // Páginas internas
 import { MenuComponent } from './pages/menu/menu';
 import { SelectExerciciosComponent } from './pages/treinos/select-exercicios/select-exercicios';
+import { ListTreinosComponent } from './pages/treinos/list-treinos/list-treinos';
 
 export const routes: Routes = [
 
@@ -25,7 +26,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'menu', pathMatch: 'full' },
       { path: 'menu', component: MenuComponent },
       { path: 'treinos/selecionar', component: SelectExerciciosComponent },
-      // futuras páginas aqui
+      { path: 'treinos/listar', component: ListTreinosComponent}
     ]
   },
 

@@ -18,5 +18,25 @@
       "email": "123@123",
       "senha": "123456"
     }
+  ],
+  "treinos": [
+    {
+      "id": "a759",
+      "nome": "Meu Treino",
+      "descricao": "Flexão de braço (push-up), Puxada frontal na polia (pulldown), Remada curvada com barra",
+      "duracao": 45
+    },
+    {
+      "id": "099c",
+      "nome": "Treino Peito/Costas",
+      "descricao": "Supino reto com barra, Supino inclinado com barra, Supino reto com halteres, Remada curvada com barra, Remada baixa na máquina",
+      "duracao": 45
+    },
+    {
+      "id": "4eb1",
+      "nome": "Meu Treino",
+      "descricao": "Supino inclinado com barra, Supino inclinado com halteres, Remada curvada com barra, Remada baixa na máquina, Cadeira extensora, Stiff (para posteriores), Rosca direta com barra, Rosca alternada com halteres, Tríceps corda na polia alta, Mergulho entre bancos, Desenvolvimento com barra (ou halteres), Elevação lateral com halteres",
+      "duracao": 45
+    }
   ]
 }

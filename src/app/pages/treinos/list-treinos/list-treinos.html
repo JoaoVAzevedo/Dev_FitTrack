@@ -1,1 +1,24 @@
-<p>list-treinos works!</p>
+<div class="pagina-container">
+  <h2 class="titulo">Meus Treinos</h2>
+
+  <button class="btn-novo" routerLink="/treinos/selecionar">➕ Criar novo treino</button>
+
+  <div *ngIf="treinos.length === 0" class="mensagem-vazia">
+    Nenhum treino cadastrado ainda. Crie seu primeiro treino!
+  </div>
+
+  <div class="treinos-grid">
+    <div *ngFor="let treino of treinos" class="card-treino">
+      <h3>{{ treino.nome }}</h3>
+      <ul class="lista-exercicios">
+        <li *ngFor="let ex of treino.descricao.split(', ')">{{ ex }}</li>
+      </ul>
+      <span class="duracao">⏱ {{ treino.duracao }} min</span>
+
+      <div class="acoes">
+        <button class="btn-acao editar" (click)="editar(treino.id!)">✏️ Editar</button>
+        <button class="btn-acao excluir" (click)="remover(treino.id!)">🗑 Excluir</button>
+      </div>
+    </div>
+  </div>
+</div>
