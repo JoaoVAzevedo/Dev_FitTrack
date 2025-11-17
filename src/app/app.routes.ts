@@ -12,6 +12,7 @@ import { MenuComponent } from './pages/menu/menu';
 import { SelectExerciciosComponent } from './pages/treinos/select-exercicios/select-exercicios';
 import { ListTreinosComponent } from './pages/treinos/list-treinos/list-treinos';
 import { EditTreinoComponent } from './pages/treinos/edit-treinos/edit-treinos';
+import { CadastroDietaComponent } from './pages/dietas/cadastro-dieta/cadastro-dieta';
 
 export const routes: Routes = [
 
@@ -28,7 +29,8 @@ export const routes: Routes = [
       { path: 'menu', component: MenuComponent },
       { path: 'treinos/selecionar', component: SelectExerciciosComponent },
       { path: 'treinos/listar', component: ListTreinosComponent},
-      { path: 'treinos/editar/:id', component: EditTreinoComponent }
+      { path: 'treinos/editar/:id', component: EditTreinoComponent },
+      { path: 'dietas/criar', component: CadastroDietaComponent}
     ]
   },
 

@@ -19,9 +19,9 @@
   background-color: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between;  /* Agora funciona */
+  justify-content: space-between;
   border-bottom: 1px solid #eaeaea;
-  padding: 0 60px; /* reduzido pra não quebrar */
+  padding: 0 60px;
   box-sizing: border-box;
 }
 
@@ -33,7 +33,7 @@
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 55px; /* reduzido para encaixar bem */
+  gap: 55px;
 }
 
 .navbar a {
