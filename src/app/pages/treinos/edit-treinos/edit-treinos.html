@@ -1,0 +1,35 @@
+<div class="pagina-container">
+  <h2 class="titulo">Editar Treino</h2>
+
+  <form [formGroup]="form" class="form-treino">
+    <input type="text" formControlName="nome" placeholder="Nome do treino" class="input-nome" />
+    <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="erro">
+      O nome do treino é obrigatório (mínimo 3 caracteres).
+    </div>
+
+
+<div class="categorias-grid">
+  <div *ngFor="let cat of categorias" class="card-categoria">
+    <h3>{{ cat.nome }}</h3>
+    <ul>
+      <li *ngFor="let ex of cat.exercicios"
+    (click)="toggleExercicio(ex)"
+    [class.selecionado]="form.value.exerciciosSelecionados.includes(ex.toLowerCase())">
+  {{ ex }}
+  <span *ngIf="form.value.exerciciosSelecionados.includes(ex.toLowerCase())" class="check">✔</span>
+</li>
+    </ul>
+  </div>
+</div>
+
+
+    <button class="btn-salvar" [disabled]="form.invalid" (click)="atualizar()">
+      ✅ Salvar alterações
+    </button>
+
+    <button class="btn-cancelar" (click)="cancelar()">
+      ❌ Cancelar
+    </button>
+
+  </form>
+</div>

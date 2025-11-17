@@ -11,14 +11,15 @@ import { MainLayoutComponent } from './shared/main-layout/main-layout';
 import { MenuComponent } from './pages/menu/menu';
 import { SelectExerciciosComponent } from './pages/treinos/select-exercicios/select-exercicios';
 import { ListTreinosComponent } from './pages/treinos/list-treinos/list-treinos';
+import { EditTreinoComponent } from './pages/treinos/edit-treinos/edit-treinos';
 
 export const routes: Routes = [
 
-  // 1️⃣ Rotas públicas SEM HEADER
+  // Rotas públicas SEM HEADER
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
-  // 2️⃣ Tudo que é pós-login fica dentro do layout
+  // Tudo que é pós-login fica dentro do layout
   {
     path: '',
     component: MainLayoutComponent,
@@ -26,10 +27,11 @@ export const routes: Routes = [
       { path: '', redirectTo: 'menu', pathMatch: 'full' },
       { path: 'menu', component: MenuComponent },
       { path: 'treinos/selecionar', component: SelectExerciciosComponent },
-      { path: 'treinos/listar', component: ListTreinosComponent}
+      { path: 'treinos/listar', component: ListTreinosComponent},
+      { path: 'treinos/editar/:id', component: EditTreinoComponent }
     ]
   },
 
-  // 3️⃣ Wildcard (sem interferir nas outras)
+  // Wildcard (sem interferir nas outras)
   { path: '**', redirectTo: 'login' }
 ];

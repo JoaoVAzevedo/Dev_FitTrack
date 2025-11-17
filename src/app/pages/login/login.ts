@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-import { RouterModule } from '@angular/router';       // <-- use RouterModule
-import { CommonModule } from '@angular/common';      // <-- necessário para *ngIf, *ngFor, etc
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import { UsuarioService } from '../../services/usuarios/usuarios';
 
 @Component({
@@ -10,7 +10,7 @@ import { UsuarioService } from '../../services/usuarios/usuarios';
   standalone: true,
   templateUrl: './login.html',
   styleUrls: ['./login.css'],
-  imports: [CommonModule, ReactiveFormsModule, RouterModule]  // <- adicione CommonModule aqui
+  imports: [CommonModule, ReactiveFormsModule, RouterModule]
 })
 export class LoginComponent {
 
@@ -41,6 +41,8 @@ export class LoginComponent {
     this.usuarioService.login(email, senha).subscribe(res => {
       if (res.length > 0) {
         this.erroLogin = false;
+        const usuarioId = res[0].id!;
+        localStorage.setItem('usuarioId', usuarioId.toString());
         this.router.navigate(['/menu']);
       } else {
         this.erroLogin = true;

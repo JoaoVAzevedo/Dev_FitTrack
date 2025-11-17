@@ -21,22 +21,69 @@
   ],
   "treinos": [
     {
-      "id": "a759",
+      "id": "7759",
       "nome": "Meu Treino",
       "descricao": "Flexão de braço (push-up), Puxada frontal na polia (pulldown), Remada curvada com barra",
-      "duracao": 45
+      "duracao": 45,
+      "usuarioId": "3641"
     },
     {
-      "id": "099c",
       "nome": "Treino Peito/Costas",
-      "descricao": "Supino reto com barra, Supino inclinado com barra, Supino reto com halteres, Remada curvada com barra, Remada baixa na máquina",
-      "duracao": 45
+      "descricao": "supino inclinado com barra, remada baixa na máquina, supino reto com barra",
+      "duracao": 45,
+      "id": "9999",
+      "usuarioId": 3641
     },
     {
-      "id": "4eb1",
       "nome": "Meu Treino",
-      "descricao": "Supino inclinado com barra, Supino inclinado com halteres, Remada curvada com barra, Remada baixa na máquina, Cadeira extensora, Stiff (para posteriores), Rosca direta com barra, Rosca alternada com halteres, Tríceps corda na polia alta, Mergulho entre bancos, Desenvolvimento com barra (ou halteres), Elevação lateral com halteres",
-      "duracao": 45
+      "descricao": "supino inclinado com barra, supino inclinado com halteres, remada curvada com barra, remada baixa na máquina, cadeira extensora, stiff (para posteriores), rosca direta com barra, rosca alternada com halteres, tríceps corda na polia alta, mergulho entre bancos, desenvolvimento com barra (ou halteres), elevação lateral com halteres",
+      "duracao": 45,
+      "id": "4341",
+      "usuarioId": "3641"
+    },
+    {
+      "id": "1025",
+      "nome": "Testildo",
+      "descricao": "Supino reto com barra",
+      "duracao": 45,
+      "usuarioId": 3641
+    },
+    {
+      "id": "cfdf",
+      "originalId": "cfdf",
+      "nome": "Confirmei",
+      "descricao": "supino reto com barra, mergulho entre bancos",
+      "duracao": 45,
+      "usuarioId": "3641"
+    },
+    {
+      "nome": "Treino Testandoooooo",
+      "descricao": "Agachamento livre (com barra ou peso corporal), Leg press",
+      "duracao": 45,
+      "usuarioId": "3641",
+      "id": "qL2-Nrm"
+    },
+    {
+      "id": "XcyGIOs",
+      "originalId": "XcyGIOs",
+      "nome": "TESTE 2",
+      "descricao": "supino reto com barra, supino inclinado com barra, rosca direta com barra",
+      "duracao": 45,
+      "usuarioId": "3641"
+    },
+    {
+      "nome": "TREINO JÃO",
+      "descricao": "Supino reto com barra, Supino inclinado com barra",
+      "duracao": 45,
+      "usuarioId": "1",
+      "id": "vV8CI05"
+    },
+    {
+      "nome": "Meu Treino",
+      "descricao": "Supino inclinado com barra",
+      "duracao": 45,
+      "usuarioId": "1",
+      "id": "ODei9fe"
     }
   ]
 }

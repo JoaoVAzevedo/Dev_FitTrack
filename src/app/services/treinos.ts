@@ -1,12 +1,14 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { map, Observable } from "rxjs";
 
 export interface Treino {
-  id?: number;
+  id: number;         // USADO INTERNAMENTE
+  originalId?: string // USADO PARA PUT/DELETE NO BACKEND
   nome: string;
   descricao: string;
-  duracao: number; // em minutos
+  duracao: number;   // EM MINUTOS
+  usuarioId: string;
 }
 
 @Injectable({
@@ -17,23 +19,72 @@ export class TreinosService {
 
   constructor(private http: HttpClient) {}
 
-  listar(): Observable<Treino[]> {
-    return this.http.get<Treino[]>(this.apiUrl);
+  private stringToNumber(str: string): number {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+     hash = (hash << 5) - hash + str.charCodeAt(i);
+     hash |= 0; // força 32-bit
+    }
+
+    return Math.abs(hash);
   }
 
-  buscarPorId(id: number): Observable<Treino> {
-    return this.http.get<Treino>(`${this.apiUrl}/${id}`);
+
+listar(): Observable<Treino[]> {
+  const usuarioId = localStorage.getItem('usuarioId');
+  const url = usuarioId ? `${this.apiUrl}?usuarioId=${usuarioId}` : this.apiUrl;
+
+  return this.http.get<any[]>(url).pipe(
+    map(treinos => treinos.map(t => ({
+      ...t,
+      id: this.stringToNumber(t.id),
+      originalId: t.id // guarda ID real
+    })))
+  );
+}
+
+
+
+  buscarPorId(id: string): Observable<Treino> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`).pipe(
+      map(t => ({
+        ...t,
+        id: this.stringToNumber(t.id),
+        originalId: t.id
+      }))
+    );
   }
 
   criar(treino: Treino): Observable<Treino> {
-    return this.http.post<Treino>(this.apiUrl, treino);
+    const { id, originalId, ...dados } = treino;
+    return this.http.post<any>(this.apiUrl, dados).pipe(
+      map(t => ({
+        ...t,
+        id: this.stringToNumber(t.id),
+        originalId: t.id
+      }))
+    );
   }
 
-  atualizar(id: number, treino: Treino): Observable<Treino> {
-    return this.http.put<Treino>(`${this.apiUrl}/${id}`, treino);
+
+  atualizar(treino: Treino): Observable<Treino> {
+    if (!treino.originalId) {
+      throw new Error('originalId não encontrado para atualização');
+    }
+    return this.http.put<any>(`${this.apiUrl}/${treino.originalId}`, treino).pipe(
+      map(t => ({
+        ...t,
+        id: this.stringToNumber(t.id),
+        originalId: t.id
+      }))
+    );
   }
 
-  remover(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  remover(treino: Treino): Observable<void> {
+    if (!treino.originalId) {
+      throw new Error('originalId não encontrado para remoção');
+    }
+    return this.http.delete<void>(`${this.apiUrl}/${treino.originalId}`);
   }
+
 }

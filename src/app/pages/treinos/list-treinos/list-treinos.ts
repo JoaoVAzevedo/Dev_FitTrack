@@ -23,15 +23,16 @@ export class ListTreinosComponent implements OnInit {
     });
   }
 
-  editar(id: number) {
-    this.router.navigate(['/treinos/editar', id]);
+  editar(treino: Treino) {
+    this.router.navigate(['/treinos/editar', treino.originalId]); // OriginalId na rota, porque o backend precisa dele
   }
 
-  remover(id: number) {
+  remover(treino: Treino) {
     if (confirm('Deseja realmente excluir este treino?')) {
-      this.treinosService.remover(id).subscribe(() => {
-      this.treinos = this.treinos.filter(t => t.id !== id);
-    });
+      this.treinosService.remover(treino).subscribe(() => {
+      this.treinos = this.treinos.filter(t => t.id !== treino.id);
+      });
     }
   }
+
 }
