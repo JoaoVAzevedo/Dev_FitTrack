@@ -27,11 +27,11 @@ export class EditTreinoComponent implements OnInit {
   ) {}
 
 
-  originalId!: string; // novo campo
+  originalId!: string;
 
 
   ngOnInit() {
-    this.originalId = this.route.snapshot.paramMap.get('id')!; // pega string
+    this.originalId = this.route.snapshot.paramMap.get('id')!;
     console.log('Original ID carregado:', this.originalId);
 
     this.form = this.fb.group({
@@ -70,8 +70,8 @@ export class EditTreinoComponent implements OnInit {
 
     const usuarioId = localStorage.getItem('usuarioId')!;
     const treinoAtualizado: Treino = {
-      id: 0, // não importa, o service vai usar originalId
-      originalId: this.originalId, // ESSENCIAL para PUT
+      id: 0,
+      originalId: this.originalId,
       nome: this.form.value.nome,
       descricao: this.form.value.exerciciosSelecionados.join(', '),
       duracao: 45,

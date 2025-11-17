@@ -26,10 +26,10 @@ export class RegisterComponent {
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
       confirmarSenha: ['', [Validators.required]]
-    }, { validators: this.passwordMatchValidator }); // nota: aqui usamos a função abaixo
+    }, { validators: this.passwordMatchValidator });
   }
 
-  // ValidatorFn que marca o control 'confirmarSenha' com { passwordMismatch: true }
+
   passwordMatchValidator: ValidatorFn = (group: AbstractControl): ValidationErrors | null => {
     const senha = group.get('senha');
     const confirmar = group.get('confirmarSenha');
@@ -55,8 +55,6 @@ export class RegisterComponent {
         confirmar.setErrors(hasOther ? rest : null);
       }
     }
-
-    // retorna validation error para o grupo também (opcional)
     return isMismatch ? { passwordMismatch: true } : null;
   }
 
@@ -76,7 +74,6 @@ export class RegisterComponent {
       alert("Usuário cadastrado com sucesso!");
       this.form.reset();
     }, (err) => {
-      // trate erros do backend aqui
       console.error(err);
     });
   }
