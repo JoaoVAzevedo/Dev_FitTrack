@@ -1,0 +1,42 @@
+<br>
+
+<div class="pagina-container">
+  <h2 class="titulo">Meu Perfil - Progresso</h2>
+  <p class="subtitulo">Acompanhe seus objetivos e atualize seus dados</p>
+
+  <div class="usuario-box">
+    <span class="usuario-icon">👤</span>
+    <span class="usuario-nome">{{ nomeUsuario }}</span>
+  </div>
+
+
+  <form [formGroup]="form" class="form-progresso">
+    <!-- Peso -->
+    <div class="linha-dado">
+      <label>Peso atual</label>
+      <input type="number" formControlName="pesoAtual" placeholder="Ex: 70" />
+      <label>Meta Peso</label>
+      <input type="number" formControlName="metaPeso" placeholder="Ex: 65" />
+    </div>
+
+    <!-- Gordura Corporal -->
+    <div class="linha-dado">
+      <label>Gordura Corporal Atual (%)</label>
+      <input type="number" formControlName="gorduraAtual" placeholder="Ex: 20" />
+      <label>Meta Gordura Corporal (%)</label>
+      <input type="number" formControlName="metaGordura" placeholder="Ex: 15" />
+    </div>
+
+    <!-- Massa Magra -->
+    <div class="linha-dado">
+      <label>Massa Magra Atual (kg)</label>
+      <input type="number" formControlName="massaAtual" placeholder="Ex: 50" />
+      <label>Meta Massa Magra (kg)</label>
+      <input type="number" formControlName="metaMassa" placeholder="Ex: 55" />
+    </div>
+
+    <div class="botoes">
+      <button class="btn-salvar" [disabled]="form.invalid" (click)="salvar()">💾 Salvar Progresso</button>
+    </div>
+  </form>
+</div>

@@ -103,5 +103,27 @@
       "usuarioId": "1",
       "id": 3
     }
+  ],
+  "progresso": [
+    {
+      "pesoAtual": 70,
+      "metaPeso": 65,
+      "gorduraAtual": 20,
+      "metaGordura": 15,
+      "massaAtual": 50,
+      "metaMassa": 60,
+      "usuarioId": "3641",
+      "id": 1
+    },
+    {
+      "pesoAtual": 75,
+      "metaPeso": 70,
+      "gorduraAtual": 15,
+      "metaGordura": 10,
+      "massaAtual": 50,
+      "metaMassa": 60,
+      "usuarioId": "1",
+      "id": 2
+    }
   ]
 }

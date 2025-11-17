@@ -1,0 +1,102 @@
+body {
+  background-color: #c8e6c9;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.pagina-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+.titulo, .subtitulo {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.form-progresso {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.linha-dado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.usuario-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #e8f5e9; /* Verde clarinho */
+  color: #333;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px; /* Espaço abaixo do título */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-icon {
+  font-size: 18px;
+  color: #00c853; /* Verde FitTrack */
+}
+
+.usuario-nome {
+  font-size: 14px;
+}
+
+
+.linha-dado label {
+  font-weight: bold;
+  color: #333;
+}
+
+.linha-dado input {
+  width: 100px;
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-salvar {
+  background: #00c853;
+  color: #fff;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-salvar:disabled {
+  background: #9e9e9e;
+}

@@ -12,6 +12,68 @@
   background-color: #A7E5D2;
 }
 
+
+/* ===== Caixa Meu Perfil ===== */
+
+.top-bar {
+  display: flex;
+  justify-content:flex-end;
+  align-items: center;
+  padding: 200 16px;
+  background-color: #A7E5D2;
+  position: relative;
+}
+
+.perfil-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  background-color: #00c853;
+  color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 16px;
+}
+
+.perfil-box:hover {
+  background-color: #009624;
+  transform: scale(1.1);
+}
+
+.perfil-icon {
+  font-size: 18px;
+}
+
+/* Texto escondido inicialmente */
+.perfil-text {
+  position: absolute;
+  right: 40px;
+  background-color: #333;
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Mostra o texto no hover */
+.perfil-box:hover .perfil-text {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+
+
+
 /* ===== Navbar ===== */
 .navbar {
   width: 100%;
