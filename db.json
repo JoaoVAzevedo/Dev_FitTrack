@@ -72,34 +72,36 @@
       "usuarioId": "3641"
     },
     {
-      "nome": "TREINO JÃO",
-      "descricao": "Supino reto com barra, Supino inclinado com barra",
-      "duracao": 45,
-      "usuarioId": "1",
-      "id": "vV8CI05"
-    },
-    {
       "nome": "Meu Treino",
-      "descricao": "Supino inclinado com barra",
+      "descricao": "Supino reto com halteres, Rosca martelo",
       "duracao": 45,
       "usuarioId": "1",
-      "id": "ODei9fe"
+      "id": "DeNuPA0"
     }
   ],
   "dietas": [
     {
       "nome": "Dieta 1",
-      "descricao": "Laranja, Banana, Morango, Cenoura, Batata doce, Iogurte natural, Ovos inteiros, Peito de peru",
+      "descricao": "Laranja, Banana, Morango, Cenoura, Batata doce, Iogurte natural, Ovos inteiros, Peito de peru, Chá verde",
       "calorias": 1000,
       "usuarioId": "3641",
-      "id": 1
+      "id": 1,
+      "originalId": 1
     },
     {
       "nome": "Dieta 2",
-      "descricao": "Peito de frango, Arroz integral, Brócolis, Maçã, Água",
-      "calorias": 50,
+      "descricao": "Peito de frango, Arroz integral, Batata doce, Brócolis, Espinafre, Água, Carne bovina magra, Café",
+      "calorias": 650,
       "usuarioId": "3641",
-      "id": 2
+      "id": 2,
+      "originalId": 2
+    },
+    {
+      "nome": "Dieta 1",
+      "descricao": "Peito de peru, Macarrão integral, Pimentão, Pera, Café",
+      "calorias": 100,
+      "usuarioId": "1",
+      "id": 3
     }
   ]
 }

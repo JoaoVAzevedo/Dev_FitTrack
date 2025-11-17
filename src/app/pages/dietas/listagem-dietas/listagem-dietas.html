@@ -1,0 +1,20 @@
+    <h2 class="titulo">Minhas Dietas</h2>
+
+    <button class="btn-novo" routerLink="/dietas/criar">➕ Criar novo plano alimentar</button>
+
+    <div *ngIf="dietas.length === 0" class="mensagem-vazia">
+    Nenhum plano alimentar cadastrado ainda. Crie sua primeira dieta!
+    </div>
+
+    <div class="dietas-grid">
+      <div class="card-dieta" *ngFor="let dieta of dietas">
+        <h3>{{ dieta.nome }}</h3>
+        <p class="calorias">Calorias: {{ dieta.calorias }} kcal</p>
+        <p class="alimentos">{{ dieta.descricao }}</p>
+        <div class="acoes">
+          <button class="btn-editar" (click)="editar(dieta)">✏️ Editar</button>
+          <button class="btn-excluir" (click)="excluir(dieta)">🗑️ Excluir</button>
+        </div>
+      </div>
+    </div>
+

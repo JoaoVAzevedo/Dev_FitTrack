@@ -1,0 +1,38 @@
+<body>
+  <div class="pagina-container">
+    <h2 class="titulo">Editar seu plano alimentar FitTrack</h2>
+    <p class="subtitulo">Atualize os alimentos e informações da sua dieta</p>
+
+    <form [formGroup]="form" class="form-dieta">
+      <input type="text" formControlName="nome" placeholder="Nome da dieta" class="input-nome" />
+      <div *ngIf="form.get('nome')?.invalid && form.get('nome')?.touched" class="erro">
+        O nome da dieta é obrigatório (mínimo 3 caracteres).
+      </div>
+
+      <input type="number" formControlName="calorias" placeholder="Calorias totais" class="input-calorias" />
+      <div *ngIf="form.get('calorias')?.invalid && form.get('calorias')?.touched" class="erro">
+        Informe um valor válido (mínimo 50 calorias).
+      </div>
+
+      <div class="categorias-container">
+        <div class="categoria" *ngFor="let cat of categorias">
+          <h3>{{ cat.nome }}</h3>
+          <div class="alimentos-grid">
+            <div class="card-alimento"
+                 *ngFor="let alimento of cat.alimentos"
+                 (click)="toggleAlimento(alimento)"
+                 [class.selecionado]="form.value.alimentosSelecionados.includes(alimento)">
+              {{ alimento }}
+              <span *ngIf="form.value.alimentosSelecionados.includes(alimento)" class="check">✔</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="botoes">
+        <button class="btn-salvar" [disabled]="form.invalid" (click)="salvar()">✅ Atualizar dieta</button>
+        <button class="btn-cancelar" (click)="cancelar()">❌ Cancelar</button>
+      </div>
+    </form>
+  </div>
+</body>
